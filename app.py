@@ -5,7 +5,7 @@ import seaborn as sns
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
-# Streamlit App Title
+
 st.set_page_config(page_title="Customer Segmentation App", layout="centered")
 st.title("🎯 Customer Segmentation with K-Means Clustering")
 
@@ -14,17 +14,17 @@ Upload your retail customer dataset to perform K-Means clustering
 and visualize customer groups based on selected behavioral features.
 """)
 
-# Upload CSV file
+
 uploaded_file = st.file_uploader("📤 Upload CSV File", type=["csv"])
 
-# If file is uploaded
+
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     st.success("✅ File uploaded successfully!")
     st.write("### 📄 Preview of Dataset")
     st.dataframe(df.head())
 
-    # Let user pick numeric features for clustering
+    
     numeric_cols = df.select_dtypes(include=['float64', 'int64']).columns.tolist()
     st.write("### 🔢 Select Features for Clustering")
     selected_features = st.multiselect(
@@ -38,23 +38,23 @@ if uploaded_file is not None:
     else:
         X = df[selected_features]
 
-        # Standardize features
+        
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
 
-        # Select number of clusters
+       
         st.write("### ⚙️ K-Means Configuration")
         k = st.slider("Select number of clusters (K)", 2, 10, 5)
 
-        # KMeans clustering
+        
         kmeans = KMeans(n_clusters=k, random_state=42)
         df['Cluster'] = kmeans.fit_predict(X_scaled)
 
-        # Show cluster-labeled data
+        
         st.write("### 📊 Data with Cluster Labels")
         st.dataframe(df[[*selected_features, 'Cluster']].head())
 
-        # Plotting
+        
         st.write("### 🖼️ Cluster Visualization")
         fig, ax = plt.subplots()
         sns.scatterplot(
@@ -66,7 +66,7 @@ if uploaded_file is not None:
         ax.set_ylabel(selected_features[1])
         st.pyplot(fig)
 
-        # Optional: Show cluster sizes
+        
         st.write("### 📌 Cluster Sizes")
         cluster_counts = df['Cluster'].value_counts().sort_index()
         st.bar_chart(cluster_counts)
