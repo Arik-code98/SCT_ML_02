@@ -16,6 +16,6 @@ This is a simple Streamlit web app that performs customer segmentation using the
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/customer-segmentation-kmeans.git
-   cd customer-segmentation-kmeans
+   git clone https://github.com/Arik-code98/SCT_ML_02.git
+   cd SCT_ML_02
 
