@@ -22,5 +22,5 @@ This is a simple Streamlit web app that performs customer segmentation using the
    streamlit run app.py #This runs the model on a localhost server
 
 Link for the hosted Model 
-https://sctml01-mtp9lq3onlfd8wkmjsgttw.streamlit.app/
+https://sctml02-srk3avucmvxhbsxmedpxkg.streamlit.app/
 
