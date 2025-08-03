@@ -11,9 +11,6 @@ This is a simple Streamlit web app that performs customer segmentation using the
 - Visualize customer segments using scatter plots.
 - See cluster-labeled data and cluster sizes.
 
-## 🖼️ Demo
-
-![App Screenshot](screenshot.png) <!-- Add your actual screenshot file here -->
 
 ## 📦 Installation
 
